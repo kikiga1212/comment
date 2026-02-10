@@ -20,14 +20,14 @@ public class BlogService {
     private final ModelMapper modelMapper;
 
     //전체게시글 조회
-    private List<BlogDTO> findAll(){
+    public List<BlogDTO> findAll(){
         return blogRepository.findAll()
                 .stream()//순서대로 읽어서
                 .map(entity->modelMapper.map(entity, BlogDTO.class))
                 .toList();
     }
     //개별게시글 조회
-    private BlogDTO findById(Long id){
+    public BlogDTO findById(Long id){
         BlogEntity entity = blogRepository.findById(id)
                 //.orElse(null); null을 안주는이유 ->
                 .orElseThrow(()->new IllegalArgumentException("게시글 없음"));
@@ -35,7 +35,7 @@ public class BlogService {
     }
 
     //등록
-    private Long save(BlogDTO blogDTO){
+    public Long save(BlogDTO blogDTO){
         BlogEntity entity = modelMapper.map(blogDTO, BlogEntity.class);
         entity.setCreatedAt(LocalDateTime.now());//현재 시간을 저장
 
