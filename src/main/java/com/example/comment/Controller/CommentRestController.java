@@ -34,7 +34,7 @@ public class CommentRestController {
     }
 
 }
-//@Controller는 model로 값을 전달하고, returen으로 이동페이지
+//@Controller는 model로 값을 전달하고, return으로 이동페이지
 //public String(이동페이지의 문자열)
 //@RestController는 model로 값을 전달하지 않고, return으로 json데이터를 전달
 //(이동페이지는 호출한 페이지로 이동)
