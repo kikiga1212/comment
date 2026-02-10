@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Builder @ToString
 public class BlogDTO {
     private Long id;        //기본키, 번호
     private String title;   //제목
