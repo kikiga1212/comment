@@ -11,11 +11,11 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/comments")
-//게시글의 상세페이징서 삽입,삭제,조회를 비돟기식으로 처리
+//게시글의 상세페이지에서 삽입,삭제,조회를 비돟기식으로 처리
 public class CommentRestController {
     private final CommentService commentService;
 
-    //댓글 조회
+    //댓글 조회(댓글을 list로 전달)
     @GetMapping("/{blogId}")
     public List<CommentDTO> list(@PathVariable Long blogId){
         return commentService.findByBlogId(blogId);
@@ -44,5 +44,5 @@ public class CommentRestController {
 //DTO전달 받을때 @RequestBody를 선언
 //매핑 : GetMapping(목록,상세)
 //       PostMapping(삽입처리)
-//       PutMapping(수정처리-전체),
-//       DeleteMapping(
+//       PutMapping(수정처리-전체적), PatchMapping(수정처리-부분적),
+//       DeleteMapping(삭제처리)
