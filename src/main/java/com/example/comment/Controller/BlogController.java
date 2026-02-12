@@ -56,9 +56,9 @@ public class BlogController {
         return "blog/edit";
     }
 
-    @PostMapping("{id}/edit")
+    @PostMapping("/{id}/edit")
     public String update(@PathVariable Long id, @ModelAttribute BlogDTO blogDTO){
         blogService.update(id, blogDTO);
-        return "redirect:/blogs"+id;//상세보기로 이동
+        return "redirect:/blogs/"+id;//상세보기로 이동
     }
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/comments")
@@ -18,6 +19,7 @@ public class CommentRestController {
     //댓글 조회(댓글을 list로 전달)
     @GetMapping("/{blogId}")
     public List<CommentDTO> list(@PathVariable Long blogId){
+        System.out.println("blogId : "+blogId);
         return commentService.findByBlogId(blogId);
         //List<CommentDTO> list = commentService.findByBlogId(blogId);
         //return list;
